@@ -8,7 +8,8 @@ const app: Application = express();
 // cors origin is set to the frontend url
 app.use(cors({ origin: [
   "http://localhost:3000",
-  "http://localhost:5173",	
+  "http://localhost:5173",
+  "https://task-manager-app-navy-zeta.vercel.app"	
 ],
 credentials: true }));
 app.use(express.json());
