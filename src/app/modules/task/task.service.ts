@@ -16,7 +16,7 @@ const getAllTasksFromDB = async (query: any) => {
     Task.find().populate("user", "name email _id"),
     query
   )
-    .search(["title", "description", "status"])
+    .search(["title"])
     .filter()
     .sort()
     .paginate();

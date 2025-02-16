@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { SignOptions } from "jsonwebtoken";
 
 type TUserSecret = {
   id: object;
@@ -7,11 +7,11 @@ type TUserSecret = {
 
 const createToken = (
   userSecret: TUserSecret,
-  PrivateKey: string | Buffer,
-  expiresDate: string
-) => {
-  const token = jwt.sign(userSecret, PrivateKey as string, {
-    expiresIn: expiresDate,
+  privateKey: string | Buffer,
+  expiresDate: string | number
+): string => {
+  const token = jwt.sign(userSecret, privateKey, {
+    expiresIn: expiresDate as SignOptions["expiresIn"],
   });
 
   return token;
